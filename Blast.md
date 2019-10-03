@@ -82,10 +82,10 @@ When using the -db option, the BLAST tools will search for the database files in
 >The file ""/proteins/For_database/dataset.faa"  contains protein sequences for all genes retrieved from several marine single cell genomes. Make a blast formatted database and scan this database for our three genes of interest (in the file proteins/query.faa). Before you begin make sure that you use SLURM (srun for this example). These kind of search are computationally heavy and cannot be handled by the login nodes.
 For your queries use
 evalue: 1e-10
-number of threads: 2 
+number of threads: 2
 and as outfmt: "6 qseqid salltitles pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
-```srun -p scavenger --time=00:30:00 --ntaskes-per-node 2 --pty bash```
+```srun -p scavenger --time=00:30:00 --ntasks-per-node=2 --pty bash```
 
 ```makeblastdb -in dataset.faa -title dataset -dbtype prot -out dataset```
 
@@ -95,13 +95,10 @@ and as outfmt: "6 qseqid salltitles pident length mismatch gapopen qstart qend s
 >Check the output file. What do you see?
 
 ##Other tools
-There are a lot of other tools that someone can use to search sequences of interests against other sequences that are designed to fill in various "searching" needs such as HMMER (designed to detect remote homologs as sensitively as possible), LAST (handles big sequencing data i.e. can compare two vertebrate genomes), etc. We do not have time to cover them all but we will be happy to discuss them with you. 
+There are a lot of other tools that someone can use to search sequences of interests against other sequences that are designed to fill in various "searching" needs such as HMMER (designed to detect remote homologs as sensitively as possible), LAST (handles big sequencing data i.e. can compare two vertebrate genomes), etc. We do not have time to cover them all but we will be happy to discuss them with you.
 
 
 
-For more information on BLAST, see: Altschul et al. 1990 https://www.sciencedirect.com/science/article/pii/S0022283605803602 
+For more information on BLAST, see: Altschul et al. 1990 https://www.sciencedirect.com/science/article/pii/S0022283605803602
 
-For this section material from Open Oregon State - Open Textbooks Sites (http://library.open.oregonstate.edu/computationalbiology/chapter/command-line-blast/) was used 
-
-
-
+For this section material from Open Oregon State - Open Textbooks Sites (http://library.open.oregonstate.edu/computationalbiology/chapter/command-line-blast/) was used
