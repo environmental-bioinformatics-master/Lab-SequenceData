@@ -1,6 +1,6 @@
 ## Download sequences from SRA
 
-####Install sra-tools
+#### Install sra-tools
 We will download the raw data through conda
 
 ```module load anaconda```
@@ -26,7 +26,7 @@ The flaga -O and -split-files and are commonly used. -O indicates the output dir
 ----------
 
 
-####Get accession list
+#### Get accession list
 Go to [NCBI](http://www.ncbi.nlm.nih.go/v) http://www.ncbi.nlm.nih.gov
 
 ![Alt text](./Screen Shot 2019-10-02 at 11.42.09 AM.png)
