@@ -1,9 +1,9 @@
 
 
-##**BLAST**
+## **BLAST**
 The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity between sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance of matches. BLAST can be used to infer functional and evolutionary relationships between sequences as well as help identify members of gene families.
 
-####BLAST Types
+#### BLAST Types
 
 The programs in the BLAST+ suite can search for and against sequences in protein format  and in nucleotide format (A’s, C’s, T’s, and G’s). Depending on what type the query and subject sets are, different BLAST programs are used.
 ![Alt text](./I.7_2_blast_types.png)
@@ -14,7 +14,7 @@ Other  BLAST tools include psiblast, which produces an initial search and tweaks
 
 
 ----------
-####Running web-based blast searches
+#### Running web-based blast searches
 
 
 Go to [Blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
