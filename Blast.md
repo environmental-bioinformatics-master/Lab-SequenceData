@@ -49,25 +49,25 @@ Each of the various programs in the BLAST suite accepts a large number of option
 
 > **-query**
 	the name (or path) of the FASTA-formatted file to search for as query sequences.
-
+>
 >**-subject**
 	the name (or path) of the FASTA-formatted file to search in as subject sequences.
-
+>
 > **-db** <database name>
     the name of the database to search against (as opposed to using -subject).
-
+>
 >**-evalue**
 	only hits with E values smaller than this should be reported. For example: -evalue 0.001 or -evalue 1e-6 *evaluation of the evalue cut-off should be performed*
-
+>
 > **-num_threads** <integer>
     number of CPU cores to use.
-
+>
 >**-outfmt**
-	output format: The default, 0, provides a human-readable (but not programmatically parseable) text file. The values 6 and 7 produce tab-separated rows and columns in a text file, with 7 providing explanatory comment lines. Similarly, a value of 10 produces comma-separated output; 11 produces a format that can later be quickly turned into any other with another program called blast_formatter. Options 6, 7, and 10 can be highly configured in terms of what columns are shown.
-
+>	output format: The default, 0, provides a human-readable (but not programmatically parseable) text file. The values 6 and 7 produce tab-separated rows and columns in a text file, with 7 providing explanatory comment lines. Similarly, a value of 10 produces comma-separated output; 11 produces a format that can later be quickly turned into any other with another program called blast_formatter. Options 6, 7, and 10 can be highly configured in terms of what columns are shown.
+>
 >**-max_target_seqs**
 	see Shah et al, 2018: "Misunderstood parameter of NCBI BLAST impacts the correctness of bioinformatics workflows"
-
+>
 >**-out**
 Write the output to as opposed to the default of standard output.
 
@@ -82,10 +82,10 @@ When using the -db option, the BLAST tools will search for the database files in
 >The file ""/proteins/For_database/dataset.faa"  contains protein sequences for all genes retrieved from several marine single cell genomes. Make a blast formatted database and scan this database for our three genes of interest (in the file proteins/query.faa). Before you begin make sure that you use SLURM (srun for this example). These kind of search are computationally heavy and cannot be handled by the login nodes.
 For your queries use
 evalue: 1e-10
-number of threads: 4 
+number of threads: 2 
 and as outfmt: "6 qseqid salltitles pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
-Place holder: HARRIET write the command you want them to use. 4 threads are more that adequate.
+```srun -p scavenger --time=00:30:00 --ntaskes-per-node 2 --pty bash```
 
 ```makeblastdb -in dataset.faa -title dataset -dbtype prot -out dataset```
 
