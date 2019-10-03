@@ -6,7 +6,7 @@ The Basic Local Alignment Search Tool (BLAST) finds regions of local similarity 
 #### BLAST Types
 
 The programs in the BLAST+ suite can search for and against sequences in protein format  and in nucleotide format (A’s, C’s, T’s, and G’s). Depending on what type the query and subject sets are, different BLAST programs are used.
-![Alt text](./I.7_2_blast_types.png)
+![Alt text](images/blast_types.png)
 
 Two sequences (either nucleotide or protein) may be compared directly, but when comparing a nucleotide sequence to a protein sequence, we need to consider which reading frame of the nucleotide sequence corresponds to a protein. The **blastx** and **tblastn** programs do this by converting nucleotide sequences into protein sequences in all six reading frames and comparing against all of them. Generally such programs result in six times as much work to be done. The tblastx program compares nucleotide queries against nucleotide subjects, but it does so in protein space with all six conversions compared to all six on both sides.
 
