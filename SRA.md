@@ -35,12 +35,12 @@ Go to [NCBI](http://www.ncbi.nlm.nih.go/v) http://www.ncbi.nlm.nih.gov
 
 
 Select "SRA"
-![Alt text](./Screen Shot 2019-10-02 at 11.43.57 AM.png)
+![Alt text](/images/sra2.png)
 
 
 Insert the accession number of the BioProject and "Search"
 "Send results to Run selector"
-![Alt text](./Screen Shot 2019-10-02 at 11.46.16 AM.png)
+![Alt text](/images/sra3.png)
 
 
 
@@ -51,8 +51,8 @@ Insert the accession number of the BioProject and "Search"
 Select (or not) runs
 
 Download the Accession List and the Run Info Table 
-![Alt text](./accesion.png)
-![Alt text](./list.png)
+![Alt text](/images/accesion.png)
+![Alt text](/images/list.png)
 
 You can transfer files (e.g. the accession list) from your local machine to poseidon (and vice versa) by using scp ()scp *source* *destination* )
 ```scp path-to-file username@poseidon.whoi.edu:path-to-destination-folder```
