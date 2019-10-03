@@ -18,7 +18,9 @@ Now, we are ready to start the download using the fastq-dump command.
 Use help to see the options
 ```fastq-dump -h```
 
-The flaga -O and -split-files and are commonly used. -O indicates the output directory.  --split-files will create two fastq files, one for R1 and other R2
+The flag -O and -split-files and are commonly used. -O indicates the output directory.  --split-files will create two fastq files, one for R1 and other R2
+
+For this example, I will download the file with the accession number SRR3735265
 
 ```fastq-dump  --split-files -O sra/ SRR3735265```
 
@@ -29,7 +31,7 @@ The flaga -O and -split-files and are commonly used. -O indicates the output dir
 #### Get accession list
 Go to [NCBI](http://www.ncbi.nlm.nih.go/v) http://www.ncbi.nlm.nih.gov
 
-![Alt text](./Screen Shot 2019-10-02 at 11.42.09 AM.png)
+![Alt text](/images/sra1.png)
 
 
 Select "SRA"
