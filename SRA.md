@@ -45,7 +45,7 @@ Insert the accession number of the BioProject and "Search"
 
 
 
-![Alt text](./Screen Shot 2019-10-02 at 11.48.00 AM.png)
+![Alt text](/images/sra4.png)
 
 
 Select (or not) runs
