@@ -37,7 +37,7 @@ Downloads of data from large projects that contain numerous (and large) sequenci
 
 -activate your conda environment (I called mine downloading)
 
--use a for loop to download all the sequencing runs. I recommend modifying the command we learned above to produce compressed files: e.g. ```fastq-dump --split-files --gzip -O sra/ ${i}```
+-use a for loop to download all the sequencing runs. I recommend modifying the command we learned above to produce compressed files: e.g. ```fastq-dump --split-files --gzip -O sra/ ${i}``` [${i} is your variable i.e. sra-id]
 
 
 
