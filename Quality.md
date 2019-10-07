@@ -39,7 +39,7 @@ In order to avoid uncompressing the files we will use a modification of the comm
 | 4    | String of characters which representing the quality scores; must have same number of characters as line 2 | 
 
 Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the probability of an incorrect base call (e.g. 1 in 10) or, equivalently, the base call accuracy (e.g. 90%). To make it possible to line up each individual nucleotide with its quality score, the numerical score is converted into a code where each individual character represents the numerical quality score for an individual nucleotide. The numerical value assigned to each of these characters depends on the sequencing platform that generated the reads. The sequencing machine used to generate our data uses the standard Sanger quality PHRED score encoding, using Illumina version 1.8 onwards. Each character is assigned a quality score between 0 and 40 as shown in the chart below.
-![Alt text](./Screen Shot 2019-10-07 at 2.18.37 PM.png)
+![Alt text](/images/Screen Shot 2019-10-07 at 2.18.37 PM.png)
 
 Each quality score represents the probability that the corresponding nucleotide call is incorrect. This quality score is logarithmically based, so a quality score of 10 reflects a base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. These probability values are the results from the base calling algorithm and depend on how much signal was captured for the base incorporation.
 
@@ -82,9 +82,11 @@ web browsers installed on it, so the remote computer doesn’t know how to open 
 
 To transfer a file from a remote server to our own machines, we will use scp, which we briefly mentioned during the previous lessons.
 
-First we will make a new directory on our computer to store the HTML files we’re transferring. Let’s put it on our desktop for now. Open a new tab in your terminal program (you can use the pull down menu at the top of your screen or the Cmd+t keyboard shortcut) and type:
+First we will make a new directory on our computer to store the HTML files we’re transferring. Let’s put it on our desktop for now. Open a new tab in your terminal program and make a directory:
 
 ```mkdir ~/Desktop/fastqc_html```
+
+then initiate the tranfer:
 
 ```scp username@poseidon.whoi.edu:/vortexfs1/omics/env-bio/users/username/Lab-SequenceData/fastq/fastqc_results/*html ~/Desktop/fastqc_html```
 
