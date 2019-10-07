@@ -13,10 +13,13 @@ Assessing the quality of your raw data, it is of critical importance. It will sa
 ![Alt text](/images/dilbert_garbage.png)
 
 ### Fastq format
-Let's go into the "fastq" file
+https://en.wikipedia.org/wiki/FASTQ_format
+
+Let's go into the "fastq" folder 
 ```cd /Lab-SequenceData/fastq```
  and look at the contents of the folder
-PLACEHOLDER: EXAMPLES gunzip?
+ 
+ As you will notice the fastq files have an extention "gz". These are compressed files. Since sequence files are usually very large wroking with compressed files saves a lot of time. Most of the bioinformatic tools working with sequencing reads can take as input compressed files.
 
 >View the first complete read in one of the files our dataset (HINT: think about the command to display the first **4** lines in a file).
 
