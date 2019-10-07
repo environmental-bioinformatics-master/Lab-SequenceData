@@ -41,7 +41,7 @@ Downloads of data from large projects that contain numerous (and large) sequenci
 
 
 
-There is also a way to parallelize the dowload (see https://github.com/rvalieris/parallel-fastq-dump)
+There are also ways to parallelize the dowload (e.g. https://github.com/rvalieris/parallel-fastq-dump)
 
 -go onto poseidon and navigate to your working folder
 
