@@ -24,6 +24,38 @@ For this example, I will download the file with the accession number SRR3735265
 
 ```fastq-dump  --split-files -O sra/ SRR3735265```
 
+#### Download large fastq files
+Downloads of data from large projects that contain numerous (and large) sequencing runs require a lot of time. For such downloads:
+
+-go onto poseidon and navigate to your working folder
+
+-start a tmux session
+
+-start a slurm job: e.g. ```srun -p compute --time=24:00:00 --ntasks-per-node=1 --mem=8gb --pty bash```
+
+-load anaconda
+
+-activate your conda environment (I called mine downloading)
+
+-use a for loop to download all the sequencing runs. I recommend modifying the command we learned above to produce compressed files: e.g. ```fastq-dump --split-files --gzip -O sra/ ${i}``` [${i} is your variable i.e. sra-id]
+
+
+
+There are also ways to parallelize the dowload (e.g. https://github.com/rvalieris/parallel-fastq-dump)
+
+-go onto poseidon and navigate to your working folder
+
+-start a tmux session
+
+-start a slurm job: e.g. ```srun -p compute --time=24:00:00 --ntasks-per-node=4 --mem=8gb --pty bash``` *in this case you request 4 cores*
+
+-load anaconda
+
+-activate your conda environment
+
+-conda install **parallel-fastq-dump**
+
+-use a for loop to download all the sequencing runs using parallel-fastq-dump and taking advantage of the 4 cores you requested e.g. ```parallel-fastq-dump --s ${i} --threads 4 -O sra/ --split-files --gzip```
 
 ----------
 
