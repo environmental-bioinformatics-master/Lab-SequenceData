@@ -48,7 +48,9 @@ Each quality score represents the probability that the corresponding nucleotide 
 ## Assessing Quality using FastQC
 In real life, you won’t be assessing the quality of your reads by visually inspecting your FASTQ files. Rather, you’ll be using a software to assess read quality. We’ll use a program called FastQC to visualize the quality of our reads. 
 
-FastQC has a number of features which can give you a quick impression of any problems your data may have, so you can take these issues into consideration before moving forward with your analyses. Rather than looking at quality scores for each individual read, FastQC looks at quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
+FastQC has a number of features which can give you a quick impression of any problems your data may have, so you can take these issues into consideration before moving forward with your analyses. Rather than looking at quality scores for each individual read, FastQC looks at quality collectively across all reads within a sample.
+https://github.com/s-andrews/FastQC
+https://dnacore.missouri.edu/PDF/FastQC_Manual.pdf
 
 ## Running FastQC
 
@@ -124,6 +126,8 @@ We’ve now looked at quite a few “Per base sequence quality” FastQC graphs,
 # Trimming and Filtering
 ## Cleaning Reads
 We will use a program called Trimmomatic to filter poor quality reads and trim poor quality bases from our samples
+http://www.usadellab.org/cms/index.php?page=trimmomatic
+http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf
 
 To install ```conda install -c bioconda trimmomatic```
 
@@ -160,5 +164,12 @@ Let's try to trim the first set of sequences
 ```trimmomatic PE -threads 4 set6_2.fastq.gz set6_2.fastq.gz set6pair_1.fastq.gz set6pair_2.fastq.gz set6un_1.fastq.gz set6un_2.fastq.gz SLIDINGWINDOW:4:25 TRAILING:25 MINLEN:75```
 
 > How many pairs survived?
+
+
+
+Tha material above has been adapted from datacarpentry
+https://datacarpentry.org/wrangling-genomics/02-quality-control/index.html
+https://datacarpentry.org/wrangling-genomics/03-trimming/index.html
+
 
 
