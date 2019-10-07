@@ -1,42 +1,47 @@
-#Under construction
-
 # Assessing Read Quality
+
 
 ## Quality control
 
-### Fastq format
 
+**G**arbage **I**n **G**arbage **O**ut: The quality of information coming out cannot be better than the quality of information went in.
+![Alt text](./csm_TP_0318_Issue_9e948dab97.png)
+
+Assessing the quality of your raw data, it is of critical importance. It will save you a lot of time and a lot of pain down the line.
+![Alt text](./dilbert_garbage.png)
+
+### Fastq format
+Let's go into the "fastq" file
+```cd /Lab-SequenceData/fastq```
+ and look at the contents of the folder
 PLACEHOLDER: EXAMPLES gunzip?
 
->View the first complete read in one of the files our dataset by using head to look at the first four lines.
+>View the first complete read in one of the files our dataset (HINT: think about the command to display the first **4** lines in a file).
 
-```head -n 4 SRRXXXX_1.fastq```
- 
+```head -n 4 set1_1.fastq```
+
+In order to avoid uncompressing the files we will use a modification of the command above. Use zcat to view the compressed file and *pipe* the output into head
+
+```zcat set1_1.fastq.gz | head -4```
+
 | Line |Description| 
 | :----| :--------| 
 | 1    | Begins with ‘@’ and then information about the read | 
 | 2    | The DNA sequence | 
-| 3    | Begins with ‘@’ and then information about the read| 
+| 3    | +| 
 | 4    | String of characters which representing the quality scores; must have same number of characters as line 2 | 
 
 Line 4 shows the quality for each nucleotide in the read. Quality is interpreted as the probability of an incorrect base call (e.g. 1 in 10) or, equivalently, the base call accuracy (e.g. 90%). To make it possible to line up each individual nucleotide with its quality score, the numerical score is converted into a code where each individual character represents the numerical quality score for an individual nucleotide. The numerical value assigned to each of these characters depends on the sequencing platform that generated the reads. The sequencing machine used to generate our data uses the standard Sanger quality PHRED score encoding, using Illumina version 1.8 onwards. Each character is assigned a quality score between 0 and 40 as shown in the chart below.
+![Alt text](./Screen Shot 2019-10-07 at 2.18.37 PM.png)
 
 Each quality score represents the probability that the corresponding nucleotide call is incorrect. This quality score is logarithmically based, so a quality score of 10 reflects a base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. These probability values are the results from the base calling algorithm and depend on how much signal was captured for the base incorporation.
 
->What is the last read in the XXXXXX_1.fastq file? How confident are you in this read?
+>What is the last read in the set1_1.fastq file? How confident are you in this read?
 
 ## Assessing Quality using FastQC
-n real life, you won’t be assessing the quality of your reads by visually inspecting your FASTQ files. Rather, you’ll be using a software program to assess read quality and filter out poor quality reads. We’ll first use a program called FastQC to visualize the quality of our reads. Later in our workflow, we’ll use another program to filter out poor quality reads.
+In real life, you won’t be assessing the quality of your reads by visually inspecting your FASTQ files. Rather, you’ll be using a software to assess read quality. We’ll use a program called FastQC to visualize the quality of our reads. 
 
 FastQC has a number of features which can give you a quick impression of any problems your data may have, so you can take these issues into consideration before moving forward with your analyses. Rather than looking at quality scores for each individual read, FastQC looks at quality collectively across all reads within a sample. The image below shows one FastQC-generated plot that indicates a very high quality sample:
-
-The x-axis displays the base position in the read, and the y-axis shows quality scores. In this example, the sample contains reads that are 40 bp long. This is much shorter than the reads we are working with in our workflow. For each position, there is a box-and-whisker plot showing the distribution of quality scores for all reads at that position. The horizontal red line indicates the median quality score and the yellow box shows the 2nd to 3rd quartile range. This means that 50% of reads have a quality score that falls within the range of the yellow box at that position. The whiskers show the range to the 1st and 4th quartile.
-
-For each position in this sample, the quality values do not drop much lower than 32. This is a high quality score. The plot background is also color-coded to identify good (green), acceptable (yellow), and bad (red) quality scores.
-
-Now let’s take a look at a quality plot on the other end of the spectrum.
-
-Here, we see positions within the read in which the boxes span a much wider range. Also, quality scores drop quite low into the “bad” range, particularly on the tail end of the reads. The FastQC tool produces several other diagnostic plots to assess sample quality, in addition to the one plotted above.
 
 ## Running FastQC
 
@@ -47,36 +52,41 @@ FastQC can accept multiple file names as input, and on both zipped and unzipped 
 ```conda install -c bioconda fastqc```
 
 ### Execute
-```fastqc sra/*.fastq```
+Let's run fastqc for the four set  
+```fastqc set4*.fastq.gz```
 For each input FASTQ file, FastQC has created a .zip file and a .html file. The .zip file extension indicates that this is actually a compressed set of multiple output files. We’ll be working with these output files soon. The .html file is a stable webpage displaying the summary report for each of our samples.
 
-We want to keep our data files and our results files separate, so we will move these output files into a new directory within our results/ directory.
-mkdir -p ~/dc_workshop/results/fastqc_untrimmed_reads 
- mv *.zip ~/dc_workshop/results/fastqc_untrimmed_reads/ 
- mv *.html ~/dc_workshop/results/fastqc_untrimmed_reads/
+>We want to keep our data files and our results files separate, so move these output files into a new directory within our results/ directory.
 
-cd ~/dc_workshop/results/fastqc_untrimmed_reads/ 
+```mkdir fastqc_results```
+ ```mv *.zip fastqc_results```
+ ```mv *.html fastqc_results```
+
+```cd fastqc_results```
+
 
 ### View the FastQC results
 If we were working on our local computers, we’d be able to display each of these HTML files as a webpage:
-open SRR2584863_1_fastqc.html
+open set1_1_fastqc.html
 
 web browsers installed on it, so the remote computer doesn’t know how to open the file. We want to look at the webpage summary reports, so let’s transfer them to our local computers (i.e. your laptop).
 
-To transfer a file from a remote server to our own machines, we will use scp, which we learned yesterday in the Shell Genomics lesson.
+To transfer a file from a remote server to our own machines, we will use scp, which we briefly mentioned during the previous lessons.
 
-First we will make a new directory on our computer to store the HTML files we’re transfering. Let’s put it on our desktop for now. Open a new tab in your terminal program (you can use the pull down menu at the top of your screen or the Cmd+t keyboard shortcut) and type:
+First we will make a new directory on our computer to store the HTML files we’re transferring. Let’s put it on our desktop for now. Open a new tab in your terminal program (you can use the pull down menu at the top of your screen or the Cmd+t keyboard shortcut) and type:
 
-mkdir -p ~/Desktop/fastqc
+```mkdir ~/Desktop/fastqc_html```
 
-scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
+```scp username@poseidon.whoi.edu:/vortexfs1/omics/env-bio/users/username/Lab-SequenceData/fastq/fastqc_results/*html ~/Desktop/fastqc_html```
 
-The second part starts with a : and then gives the absolute path of the files you want to transfer from your remote computer. Don’t forget the :. We used a wildcard (*.html) to indicate that we want all of the HTML files.
+Now we can go to our new directory and open the HTML files: *set4_1_fastqc.html* and *set4_2_fastqc.html*
 
-The third part of the command gives the absolute path of the location you want to put the files. This is on your local computer and is the directory we just created ~/Desktop/fastqc_html.
+The x-axis displays the base position in the read, and the y-axis shows quality scores. In this example, the sample contains reads that are 150 bp long. For each position, there is a box-and-whisker plot showing the distribution of quality scores for all reads at that position. The horizontal red line indicates the median quality score and the yellow box shows the 2nd to 3rd quartile range. This means that 50% of reads have a quality score that falls within the range of the yellow box at that position. The whiskers show the range to the 1st and 4th quartile.
 
-You should see a status output like this:
-Now we can go to our new directory and open the HTML files.
+ The plot background is also color-coded to identify good (green), acceptable (yellow), and bad (red) quality scores.
+
+> Do you notice any trends on the quality score and any difference between the read in _1 and _2?
+
 
 
 ### Decoding the other FastQC outputs
@@ -93,18 +103,15 @@ We’ve now looked at quite a few “Per base sequence quality” FastQC graphs,
 >**Adapter Content:** a graph indicating where adapter sequences occur in the reads.
 >**K-mer Content:** a graph showing any sequences which may show a positional bias within the reads.
 
-### Working with the FastQC text output
-Now that we’ve looked at our HTML reports to get a feel for the data, let’s look more closely at the other output files. Go back to the tab in your terminal program that is connected to your AWS instance (the tab label will start with dcuser@ip) and make sure you’re in our results subdirectory.
-
 
 # Trimming and Filtering
 ## Cleaning Reads
 We will use a program called Trimmomatic to filter poor quality reads and trim poor quality bases from our samples
 
+To install ```conda install -c bioconda trimmomatic```
+
 ### Trimmomatic Options
 Trimmomatic has a variety of options to trim your reads. If we run the command, we can see some of our options
-
-```conda install -c bioconda trimmomatic```
 
 ```trimmomatic```
 
@@ -131,8 +138,10 @@ This output shows us that we must first specify whether we have paired end (PE) 
 
 We will use only a few of these options and trimming steps in our analysis. It is important to understand the steps you are using to clean your data. For more information about the Trimmomatic arguments and options, see the Trimmomatic manual.
 
-The above tutorial is adopted from datacarpentry.org:
+Let's try to trim the first set of sequences
 
-https://datacarpentry.org/wrangling-genomics/02-quality-control/index.html
+```trimmomatic PE -threads 4 set6_2.fastq.gz set6_2.fastq.gz set6pair_1.fastq.gz set6pair_2.fastq.gz set6un_1.fastq.gz set6un_2.fastq.gz SLIDINGWINDOW:4:25 TRAILING:25 MINLEN:75```
 
-https://datacarpentry.org/wrangling-genomics/03-trimming/index.html
+> How many pairs survived?
+
+
