@@ -5,10 +5,10 @@
 
 
 **G**arbage **I**n **G**arbage **O**ut: The quality of information coming out cannot be better than the quality of information went in.
-![Alt text](../images/csm_TP_0318_Issue_9e948dab97.png)
+![Alt text](/images/csm_TP_0318_Issue_9e948dab97.png)
 
 Assessing the quality of your raw data, it is of critical importance. It will save you a lot of time and a lot of pain down the line.
-![Alt text](../images/dilbert_garbage.png)
+![Alt text](/images/dilbert_garbage.png)
 
 ### Fastq format
 Let's go into the "fastq" file
