@@ -16,7 +16,9 @@ Assessing the quality of your raw data, it is of critical importance. It will sa
 https://en.wikipedia.org/wiki/FASTQ_format
 
 Let's go into the "fastq" folder 
+
 ```cd /Lab-SequenceData/fastq```
+
  and look at the contents of the folder
  
  As you will notice the fastq files have an extention "gz". These are compressed files. Since sequence files are usually very large wroking with compressed files saves a lot of time. Most of the bioinformatic tools working with sequencing reads can take as input compressed files.
