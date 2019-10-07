@@ -93,15 +93,25 @@ The x-axis displays the base position in the read, and the y-axis shows quality 
 We’ve now looked at quite a few “Per base sequence quality” FastQC graphs, but there are nine other graphs that we haven’t talked about! Below we have provided a brief overview of interpretations for each of these plots. For more information, please see the FastQC documentation here
 
 >**Per tile sequence quality:** the machines that perform sequencing are divided into tiles. This plot displays patterns in base quality along these tiles. Consistently low scores are often found around the edges, but hot spots can also occur in the middle if an air bubble was introduced at some point during the run.
+>
 >**Per sequence quality scores:** a density plot of quality for all reads at all positions. This plot shows what quality scores are most common.
+>
 >**Per base sequence content: ** plots the proportion of each base position over all of the reads. Typically, we expect to see each base roughly 25% of the time at each position, but this often fails at the beginning or end of the read due to quality or adapter content.
+>
 >**Per sequence GC content:** a density plot of average GC content in each of the reads.
+>
 >**Per base N content:** the percent of times that ‘N’ occurs at a position in all reads. If there is an increase at a particular position, this might indicate that something went wrong during sequencing.
+>
 >**Sequence Length Distribution:** the distribution of sequence lengths of all reads in the file. If the data is raw, there is often on sharp peak, however if the reads have been trimmed, there may be a distribution of shorter lengths.
+>
 >**Sequence Duplication Levels:** A distribution of duplicated sequences. In sequencing, we expect most reads to only occur once. If some sequences are occurring more than once, it might indicate enrichment bias (e.g. from PCR). If the samples are high coverage (or RNA-seq or amplicon), this might not be true.
+>
 >**Overrepresented sequences:** A list of sequences that occur more frequently than would be expected by chance.
+>
 >**Adapter Content:** a graph indicating where adapter sequences occur in the reads.
+>
 >**K-mer Content:** a graph showing any sequences which may show a positional bias within the reads.
+>
 
 
 # Trimming and Filtering
