@@ -75,12 +75,9 @@ For each input FASTQ file, FastQC has created a .zip file and a .html file. The 
 
 
 ### View the FastQC results
-If we were working on our local computers, we’d be able to display each of these HTML files as a webpage:
-open set1_1_fastqc.html
+If we were working on our local computers, we’d be able to display each of these HTML files as a webpage. Since we have been working in poseidon, we have transfer them to our local computers.
 
-web browsers installed on it, so the remote computer doesn’t know how to open the file. We want to look at the webpage summary reports, so let’s transfer them to our local computers (i.e. your laptop).
-
-To transfer a file from a remote server to our own machines, we will use scp, which we briefly mentioned during the previous lessons.
+To transfer a file from a remote server to our own machines, we will use *scp*, which we briefly mentioned during the previous lessons.
 
 First we will make a new directory on our computer to store the HTML files we’re transferring. Let’s put it on our desktop for now. Open a new tab in your terminal program and make a directory:
 
@@ -138,7 +135,7 @@ Trimmomatic has a variety of options to trim your reads. If we run the command, 
 
 ```trimmomatic```
 
-This output shows us that we must first specify whether we have paired end (PE) or single end (SE) reads. Next, we specify what flag we would like to run. For example, you can specify threads to indicate the number of processors on your computer that you want Trimmomatic to use. These flags are not necessary, but they can give you more control over the command. The flags are followed by positional arguments, meaning the order in which you specify them is important. In paired end mode, Trimmomatic expects the two input files, and then the names of the output files. These files are described below.
+This output shows us that we must first specify whether we have paired end (PE) or single end (SE) reads. Next, we specify what flag we would like to run. For example, you can specify threads to indicate the number of processors on your computer that you want Trimmomatic to use. These flags are not necessary, but they can give you more control over the command. The flags are followed by positional arguments, meaning the order in which you specify them is important. In paired end mode, Trimmomatic expects the two input files, and then the names of the output files.
 
 | Option |Description| 
 | :----| :--------| 
