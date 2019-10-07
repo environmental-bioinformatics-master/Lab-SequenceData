@@ -96,7 +96,7 @@ We’ve now looked at quite a few “Per base sequence quality” FastQC graphs,
 >
 >**Per sequence quality scores:** a density plot of quality for all reads at all positions. This plot shows what quality scores are most common.
 >
->**Per base sequence content: ** plots the proportion of each base position over all of the reads. Typically, we expect to see each base roughly 25% of the time at each position, but this often fails at the beginning or end of the read due to quality or adapter content.
+>**Per base sequence content:** plots the proportion of each base position over all of the reads. Typically, we expect to see each base roughly 25% of the time at each position, but this often fails at the beginning or end of the read due to quality or adapter content.
 >
 >**Per sequence GC content:** a density plot of average GC content in each of the reads.
 >
