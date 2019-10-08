@@ -57,6 +57,7 @@ There are also ways to parallelize the dowload (e.g. https://github.com/rvalieri
 
 -use a for loop to download all the sequencing runs using parallel-fastq-dump and taking advantage of the 4 cores you requested e.g. ```parallel-fastq-dump --s ${i} --threads 4 -O sra/ --split-files --gzip```
 
+
 ----------
 
 
