@@ -164,8 +164,10 @@ Let's try to trim the first set of sequences
 
 
 
-Tha material above has been adapted from datacarpentry
+The material above has been adapted from datacarpentry.org
+
 https://datacarpentry.org/wrangling-genomics/02-quality-control/index.html
+
 https://datacarpentry.org/wrangling-genomics/03-trimming/index.html
 
 
