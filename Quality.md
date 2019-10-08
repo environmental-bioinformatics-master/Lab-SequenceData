@@ -23,9 +23,7 @@ Let's go into the "fastq" folder
  
  As you will notice the fastq files have an extention "gz". These are compressed files. Since sequence files are usually very large wroking with compressed files saves a lot of time. Most of the bioinformatic tools working with sequencing reads can take as input compressed files.
 
->View the first complete read in one of the files our dataset (HINT: think about the command to display the first **4** lines in a file).
-
-```head -n 4 set1_1.fastq```
+>View the first complete read (4 first lines) in one of the files our dataset. Will this command work? ```head -n 4 set1_1.fastq.gz```
 
 In order to avoid uncompressing the files we will use a modification of the command above. Use zcat to view the compressed file and *pipe* the output into head
 
