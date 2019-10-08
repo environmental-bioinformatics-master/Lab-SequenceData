@@ -18,11 +18,13 @@ Now, we are ready to start the download using the fastq-dump command.
 Use help to see the options
 ```fastq-dump -h```
 
-The flag -O and -split-files and are commonly used. -O indicates the output directory.  --split-files will create two fastq files, one for R1 and other R2
+The flag -O and -split-files and are commonly used. -O indicates the output directory.  --split-files will create two fastq files, one for R1 and other R2 (only for **paired-end reads**)
 
 For this example, I will download the file with the accession number SRR3735265
 
 ```fastq-dump  --split-files -O sra/ SRR3735265```
+
+if you are trying to download files that contain one direction only reads (such as 454 or SE-single end illumnina reads) omit the "--split-files" flag
 
 #### Download large fastq files
 Downloads of data from large projects that contain numerous (and large) sequencing runs require a lot of time. For such downloads:
