@@ -71,7 +71,7 @@ Each of the various programs in the BLAST suite accepts a large number of option
 >**-out**
 Write the output to as opposed to the default of standard output.
 
-####BLAST Databases
+#### BLAST Databases
 Additionally, blast provides a tool called makeblastdb that converts a subject FASTA file into an indexed and quickly searchable (but not human-readable) version of the same information, stored in a set of similarly named files (often at least three ending in .pin, .psq, and .phr for protein sequences, and .nin, .nsq, and .nhr for nucleotide sequences). This set of files represents the “database,” and the database name is the shared file name prefix of these files.
 
 We will use
@@ -86,6 +86,8 @@ number of threads: 2
 and as outfmt: "6 qseqid salltitles pident length mismatch gapopen qstart qend sstart send evalue bitscore"
 
 ```srun -p scavenger --time=00:30:00 --ntasks-per-node=2 --pty bash```
+
+> Do not forget to activate the conda environment where blast is installed
 
 ```makeblastdb -in dataset.faa -title dataset -dbtype prot -out dataset```
 
