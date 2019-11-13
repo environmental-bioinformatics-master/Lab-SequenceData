@@ -96,7 +96,7 @@ and as outfmt: "6 qseqid salltitles pident length mismatch gapopen qstart qend s
 
 >Check the output file. What do you see?
 
-##Other tools
+## Other tools
 There are a lot of other tools that someone can use to search sequences of interests against other sequences that are designed to fill in various "searching" needs such as HMMER (designed to detect remote homologs as sensitively as possible), LAST (handles big sequencing data i.e. can compare two vertebrate genomes), etc. We do not have time to cover them all but we will be happy to discuss them with you.
 
 
